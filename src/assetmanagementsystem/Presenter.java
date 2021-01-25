@@ -5,6 +5,11 @@
  */
 package assetmanagementsystem;
 
+import assetmanagementsystem.Views.View;
+import assetmanagementsystem.Views.CreateView;
+import assetmanagementsystem.Views.CreateAssetView;
+import assetmanagementsystem.Views.CreatePurchaseView;
+import assetmanagementsystem.Views.CreateSaleView;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +18,10 @@ import java.util.ArrayList;
  */
 public class Presenter {
     private View view;
+    private CreateView cv;
+    private CreateAssetView cav;
+    private CreatePurchaseView cpv;
+    private CreateSaleView csv;
     private DatabaseModel db;
     
     public Presenter() {
@@ -51,5 +60,29 @@ public class Presenter {
     
     public void OpenView(View v) {
         v.setVisible(true);
+    }
+    
+    public void OpenCreateView() {
+        cv = new CreateView();
+        cv.SetPresenter(this);
+        cv.setVisible(true);
+    }
+    
+    public void OpenCreateAssetView() {
+        cav = new CreateAssetView();
+        cav.SetPresenter(this);
+        cav.setVisible(true);
+    }
+    
+    public void OpenCreatePurchaseView() {
+        cpv = new CreatePurchaseView();
+        cpv.SetPresenter(this);
+        cpv.setVisible(true);
+    }
+    
+    public void OpenCreateSaleView() {
+        csv = new CreateSaleView();
+        csv.SetPresenter(this);
+        csv.setVisible(true);
     }
 }

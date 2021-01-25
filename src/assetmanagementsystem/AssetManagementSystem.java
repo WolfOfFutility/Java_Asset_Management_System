@@ -5,6 +5,8 @@
  */
 package assetmanagementsystem;
 
+import assetmanagementsystem.Views.View;
+
 /**
  *
  * @author ceeji

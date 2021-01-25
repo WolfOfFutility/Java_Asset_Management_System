@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assetmanagementsystem;
+package assetmanagementsystem.Views;
 
+import assetmanagementsystem.Asset;
+import assetmanagementsystem.Presenter;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -22,6 +24,9 @@ public class View extends javax.swing.JFrame {
     
     public View(Presenter p) {
         initComponents();
+        
+        this.setTitle("Ceejay's Asset Management System");
+        
         this.p = p;
         
         searchButton.addActionListener((ActionEvent e) -> {
@@ -45,6 +50,7 @@ public class View extends javax.swing.JFrame {
         
         createButton.addActionListener((ActionEvent e) -> {
             System.out.println("Create Button Clicked");
+            p.OpenCreateView();
         });
         
         deleteButton.addActionListener((ActionEvent e) -> {
@@ -136,13 +142,13 @@ public class View extends javax.swing.JFrame {
 
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Asset Name", "Quantity"
             }
         ));
         jScrollPane2.setViewportView(dataTable);
@@ -159,7 +165,7 @@ public class View extends javax.swing.JFrame {
 
         addSaleButton.setText("Add Sale");
 
-        searchTypeSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assets", "Orders" }));
+        searchTypeSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assets", "Purchases", "Sales" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
